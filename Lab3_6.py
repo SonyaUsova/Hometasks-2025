@@ -1,4 +1,9 @@
-value = 100
-for i in range (10, -1, -1):
-    value -=i;
-    print (i, value)
+string  = "Привет все изучающим Python!"
+value = input ()
+for i in string:
+    if i ==value:
+        index = string.find(value)
+        print (f"Буква '{value}' есть в строке под {index} индексом")
+        break
+else:
+    print(f"Буква '{value}' нет в указанной строке")
