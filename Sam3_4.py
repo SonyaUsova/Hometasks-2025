@@ -1,0 +1,6 @@
+sentence = input("Enter a sentence: ")
+print(len(sentence))
+print(sentence.lower())
+print(sum(1 for c in sentence.lower() if c in "aeiou"))
+print(sentence.replace("ugly", "beauty"))
+print(sentence.startswith("The") and sentence.endswith("end"))
