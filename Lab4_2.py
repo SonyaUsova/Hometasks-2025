@@ -1,7 +1,5 @@
-one = int (input("Введите значение первой переменной: "))
-if  one < 0:
-    print ("Перемнная меньше 0")
-elif  0<one < 10:
-    print ("Перемнная больше 0 и меньше 10")
-else:
-    print("Перемнная больше 10")
+def main ():
+    return  2+2
+
+if __name__=="__main__":
+    print(main())

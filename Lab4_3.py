@@ -1,6 +1,9 @@
-numbers = [1, 3,4 ,6,8,9]
-value = int (input("Введите значение  переменной: "))
-if value in numbers:
-    print ("Переменная есть в данном массиве")
-else:
-    print("Переменной нет в этом массиве")
+def main (one, two):
+   result = one + two
+   return result
+
+for i in range (5):
+    x=1
+    y=10
+    answer = main (x, y)
+    print (answer)

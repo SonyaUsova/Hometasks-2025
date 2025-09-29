@@ -1,6 +1,5 @@
-one = int (input("Введите значение первой переменной: "))
-two = int (input("Введите значение второй переменной: "))
-if one >= two:
-    print ("Выполняется")
-else:
-    print("Не выполняется")
+def main ():
+    print (2+2)
+
+if __name__=="__main__":
+    main()
