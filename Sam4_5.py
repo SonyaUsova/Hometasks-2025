@@ -1,14 +1,5 @@
-memory = 'world'
-string = 'hello'
-counter = 0
+def heron_area(a, b, c):
 
-while counter != 10:
-    memory = string
-    if counter < 10:
-        if counter % 2 == 0:
-            print(memory + " " + memory)
-        else:
-            print(memory)
-        counter += 1
-
-print(memory + " " + memory)
+    s = (a + b + c) / 2
+    area = (s * (s - a) * (s - b) * (s - c)) ** 0.5
+    return area
