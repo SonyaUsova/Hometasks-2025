@@ -1,8 +1,10 @@
-def mean(*args):
+grades_lists = [
+    [2, 3, 4, 5, 3, 4, 5, 2, 2, 5, 3, 4, 3, 5, 4],
+    [4, 2, 3, 5, 3, 5, 4, 2, 2, 5, 4, 3, 5, 3, 4],
+    [5, 4, 3, 3, 4, 3, 3, 5, 5, 3, 3, 3, 3, 4, 4]
+]
 
-    return sum(args) / len(args)
-
-if __name__ == "__main__":
-    print(mean(1, 2, 3, 4, 5))
-    print(mean(10, 20))
-
+for grades in grades_lists:
+    new_grades = [4 if g == 3 else g for g in grades if g != 2]
+    print(new_grades)
+print()
