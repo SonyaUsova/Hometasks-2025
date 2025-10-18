@@ -1,7 +1,9 @@
-def useless ( lst):
-    return max(lst)/ len (lst)
+def tuple_sort(tpl):
+    for elm in tpl:
+        if not isinstance(elm, int):
+            return tpl
+    return tuple(sorted(tpl))
 
-print (useless([3,5,7,3,33]))
-
-print (useless([-12.5, 53, 77.3, 0, -36]))
-print (useless([-22.8, 86, 12.5, 0,  -7]))
+if __name__=='__main__':
+    print(tuple_sort((5, 5, 3, 1, 9)))
+    print(tuple_sort((5, 5, 2.1, '1', 9)))

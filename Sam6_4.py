@@ -1,10 +1,13 @@
-grades_lists = [
-    [2, 3, 4, 5, 3, 4, 5, 2, 2, 5, 3, 4, 3, 5, 4],
-    [4, 2, 3, 5, 3, 5, 4, 2, 2, 5, 4, 3, 5, 3, 4],
-    [5, 4, 3, 3, 4, 3, 3, 5, 5, 3, 3, 3, 3, 4, 4]
-]
+def slice_by_element(t, el):
+    if el not in t:
+        return ()
+    first_idx = t.index(el)
+    try:
+        second_idx = t.index(el, first_idx + 1)
+        return t[first_idx:second_idx + 1]
+    except ValueError:
+        return t[first_idx:]
 
-for grades in grades_lists:
-    new_grades = [4 if g == 3 else g for g in grades if g != 2]
-    print(new_grades)
-print()
+print(slice_by_element((1, 2, 3), 8))
+print(slice_by_element((1, 8, 3, 4, 8, 8, 9, 2), 8))
+print(slice_by_element((1, 2, 8, 5, 1, 2, 9), 8))
