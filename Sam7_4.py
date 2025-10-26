@@ -1,13 +1,16 @@
-def slice_by_element(t, el):
-    if el not in t:
-        return ()
-    first_idx = t.index(el)
-    try:
-        second_idx = t.index(el, first_idx + 1)
-        return t[first_idx:second_idx + 1]
-    except ValueError:
-        return t[first_idx:]
+import re
 
-print(slice_by_element((1, 2, 3), 8))
-print(slice_by_element((1, 8, 3, 4, 8, 8, 9, 2), 8))
-print(slice_by_element((1, 2, 8, 5, 1, 2, 9), 8))
+
+with open('input.txt', encoding='utf-8') as f:
+    banned = [line.strip() for line in f.read().split() if line.strip()]
+
+sentence = input("Введите предложение: ")
+
+def censor(text, banned):
+    def repl(match):
+        return '*' * len(match.group())
+
+    pattern = '|'.join(map(re.escape, banned))
+    return re.sub(pattern, repl, text, flags=re.IGNORECASE)
+
+print(censor(sentence, banned))

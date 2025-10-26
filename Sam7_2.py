@@ -1,9 +1,22 @@
-def remove_first_occurrence(t, el):
-    if el not in t:
-        return t
-    idx = t.index(el)
-    return t[:idx] + t[idx+1:]
+def add_expense():
+    date = input("Дата (ДД.ММ.ГГГГ): ")
+    amount = input("Сумма: ")
+    category = input("Категория: ")
+    desc = input("Описание: ")
+    with open('expenses.txt', 'a', encoding='utf-8') as f:
+        f.write(f'{date},{amount},{category},{desc}\n')
+    print("Расход добавлен!")
 
-print(remove_first_occurrence((1, 2, 3), 1))
-print(remove_first_occurrence((1, 2, 3, 1, 2, 3, 4, 5, 2, 3, 4, 2, 4, 2), 3))
-print(remove_first_occurrence((2, 4, 6, 6, 4, 2), 9))
+def view_expenses():
+    print("Все расходы:")
+    with open('expenses.txt', 'r', encoding='utf-8') as f:
+        print(f.read())
+
+while True:
+    cmd = input("1: Добавить\n2: Показать\n3: Выйти\nВыберите: ")
+    if cmd == '1':
+        add_expense()
+    elif cmd == '2':
+        view_expenses()
+    else:
+        break
