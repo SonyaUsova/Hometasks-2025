@@ -7,4 +7,4 @@ def print_docs(directory):
         print(f'  Файлы: {", ".join(files)}')
         print('-' * 40)
 
-print_docs(r'/Users/sonusowa/Desktop/для уника всё')  # Укажите полный путь к вашей папке
+print_docs(r'/Users/sonusowa/Desktop/для уника всё')
