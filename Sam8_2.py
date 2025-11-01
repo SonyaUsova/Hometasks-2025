@@ -1,22 +1,12 @@
-def add_expense():
-    date = input("Дата (ДД.ММ.ГГГГ): ")
-    amount = input("Сумма: ")
-    category = input("Категория: ")
-    desc = input("Описание: ")
-    with open('expenses.txt', 'a', encoding='utf-8') as f:
-        f.write(f'{date},{amount},{category},{desc}\n')
-    print("Расход добавлен!")
+class Boat:
+    def __init__(self, name, length):
+        self.name = name
+        self.length = length
+        self.speed = 0  # Скорость в узлах
 
-def view_expenses():
-    print("Все расходы:")
-    with open('expenses.txt', 'r', encoding='utf-8') as f:
-        print(f.read())
+    def sail(self, speed):
+        self.speed = speed
+        print(f"{self.name} is sailing at {self.speed} knots")
 
-while True:
-    cmd = input("1: Добавить\n2: Показать\n3: Выйти\nВыберите: ")
-    if cmd == '1':
-        add_expense()
-    elif cmd == '2':
-        view_expenses()
-    else:
-        break
+my_boat = Boat("Wave Rider", 15)
+my_boat.sail(20)

@@ -1,12 +1,7 @@
-from collections import Counter
-import re
+class Boat:
+    def __init__(self, name, length):
+        self.name = name
+        self.length = length
 
-with open('input.txt', 'r', encoding='utf-8') as f:
-    text = f.read().lower()
-    words = re.findall(r'\b\w+\b', text)
-    count = len(words)
-    most_common = Counter(words).most_common(1)[0]
-
-print(f'Количество слов: {count}')
-print(f'Самое частое слово: {most_common[0]}, встречается {most_common[1]} раз(а)')
-
+my_boat = Boat("Wave Rider", 15)
+print(f"Boat name: {my_boat.name}, length: {my_boat.length} meters")

@@ -1,13 +1,14 @@
-name = input("Имя игрока: ")
-score = int(input("Очки: "))
+class Water:
+    def travel(self):
+        print("Traveling by water")
 
-with open('scores.txt', 'a', encoding='utf-8') as f:
-    f.write(f"{name},{score}\n")
+class River(Water):
+    def travel(self):
+        print("Sailing on the river")
 
-with open('scores.txt', 'r', encoding='utf-8') as f:
-    scores = [line.strip().split(',') for line in f]
-    scores = sorted(scores, key=lambda x: int(x[1]), reverse=True)
+class Sea(Water):
+    def travel(self):
+        print("Sailing on the sea")
 
-print("Топ 3 результата:")
-for i, row in enumerate(scores[:3], 1):
-    print(f"{i}. {row[0]} - {row[1]}")
+for water in [Water(), River(), Sea()]:
+    water.travel()

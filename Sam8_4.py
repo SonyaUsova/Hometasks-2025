@@ -1,16 +1,37 @@
-import re
+class Boat:
+    def __init__(self, name, length):
+        self.name = name
+        self.length = length
+        self.speed = 0  # Скорость в узлах
+
+    def sail(self, speed):
+        self.speed = speed
+        print(f"{self.name} is sailing at {self.speed} knots")
+
+my_boat = Boat("Wave Rider", 15)
+my_boat.sail(20)
 
 
-with open('input.txt', encoding='utf-8') as f:
-    banned = [line.strip() for line in f.read().split() if line.strip()]
 
-sentence = input("Введите предложение: ")
 
-def censor(text, banned):
-    def repl(match):
-        return '*' * len(match.group())
 
-    pattern = '|'.join(map(re.escape, banned))
-    return re.sub(pattern, repl, text, flags=re.IGNORECASE)
+class MotorBoat(Boat):
+    def __init__(self, name, length, engine_power):
+        super().__init__(name, length)
+        self.engine_power = engine_power
+        self.__speed = 0  # Приватный атрибут
 
-print(censor(sentence, banned))
+    def sail(self, speed):
+        if speed < 0:
+            print("Speed cannot be negative")
+        else:
+            self.__speed = speed
+            print(f"{self.name} is sailing at {self.__speed} knots")
+
+    def get_speed(self):
+        return self.__speed
+
+motor_boat = MotorBoat("Speedster", 10, 300)
+motor_boat.sail(25)
+print(f"Current speed: {motor_boat.get_speed()} knots")
+motor_boat.sail(-10)
