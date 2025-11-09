@@ -12,6 +12,6 @@ def greet(language):
     language.greeting()
 
 ivan = Russian()
-greet(ivan) 
+greet(ivan)
 ivan = English()
 greet(ivan)
