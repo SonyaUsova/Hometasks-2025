@@ -1,8 +1,15 @@
-class Car:
-    # Инициализация экземпляра класса с маркой и моделью автомобиля
-    def __init__(self, make, model):
-        self.make = make  # Марка автомобиля
-        self.model = model  # Модель автомобиля
+class Ivan:
+    __slots__=['name']
 
-# Создаем объект my_car с маркой Toyota и моделью Corolla
-my_car = Car("Toyota", "Corolla")
+    def __init__(self, name):
+        if name == 'Иван':
+            self.name=f"Да, я {name}"
+        else:
+            self.name = f"Я не {name}, а Иван"
+
+person1= Ivan('Алексей')
+person2= Ivan('Иван')
+print(person1.name)
+print(person2.name)
+
+person2.surname ="Петров"

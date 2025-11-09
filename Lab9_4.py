@@ -1,19 +1,15 @@
-class Car:
-    def __init__(self, make, model):
-        # _make — защищённый атрибут, по соглашению не должен использоваться вне класса и его наследников
-        self._make = make
-        # __model — приватный атрибут, благодаря name mangling его нельзя напрямую получить или переопределить в наследниках
-        # Внутри класса доступ осуществляется как self.__model, но снаружи нужно использовать self._Car__model
-        self.__model = model
+class Mammal:
+    className = 'Mammal'
 
-    def drive(self):
-        # Используем защищённый и приватный атрибут.
-        # Для доступа к приватному атрибуту (__model) применяется name mangling: self._Car__model
-        print(f"Driving the {self._make} {self._Car__model}")
+class Dog(Mammal):
+    species = 'canine'
+    sound = 'wow'
 
-# Создаём экземпляр класса Car — марка и модель задаются через конструктор
-my_car = Car("Toyota", "Corolla")
-# _make можно прочитать напрямую (не рекомендуется, но технически возможно)
-print(my_car._make)
-# drive() — печатает марку и модель, используя правильные имена атрибутов
-my_car.drive()
+class Cat(Mammal):
+    species = 'feline'
+    sound = 'meow'
+
+dog = Dog()
+print(f"Dog is {dog.className}, but they say {dog.sound}")
+cat = Cat()
+print(f"Cat is {cat.className}, but they say {cat.sound}")
