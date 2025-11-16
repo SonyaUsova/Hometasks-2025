@@ -1,15 +1,13 @@
-class Mammal:
-    className = 'Mammal'
+class NegativeValueException(Exception):
+    pass
 
-class Dog(Mammal):
-    species = 'canine'
-    sound = 'wow'
 
-class Cat(Mammal):
-    species = 'feline'
-    sound = 'meow'
+def check_name(name):
+    if len(name) > 10:
+        raise NegativeValueException('Длина более 10 символов')
+    else:
+        print('Условная регистрация')
 
-dog = Dog()
-print(f"Dog is {dog.className}, but they say {dog.sound}")
-cat = Cat()
-print(f"Cat is {cat.className}, but they say {cat.sound}")
+if __name__=='__main__':
+    name ="12345678910"
+    check_name(name)

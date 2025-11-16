@@ -1,17 +1,19 @@
-class Russian:
-    @staticmethod
-    def greeting():
-        print("Привет")
+class SiteChecker:
+    def __init__(self, func):
+        print('> Класс SiteChecker метод __init__ условный запуск')
+        self.func = func
 
-class English:
-    @staticmethod
-    def greeting():
-        print("Hello")
+    def __call__(self):
+        print('> Проверка перед запуском', self.func.__name__)
+        self.func()
+        print('> Проверка безопасности включена')
 
-def greet(language):
-    language.greeting()
 
-ivan = Russian()
-greet(ivan)
-ivan = English()
-greet(ivan)
+@SiteChecker
+def site():
+    print("Усердная работа сайта")
+
+if __name__=='__main__':
+    print('>> Сайт запущен')
+    site()  # Здесь вызовется метод __call__ объекта-декоратора SiteChecker
+    print('>> Сайт выключен')
