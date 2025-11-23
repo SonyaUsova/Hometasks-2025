@@ -13,7 +13,7 @@ def fib_with_file(n, filename="text.txt"):
 
 fib_with_file(200)
 
-# Для вывода 200-го числа Фибоначчи на экран:
+
 fib_gen = fib(200)
 fib_numbers = list(fib_gen)
-print(fib_numbers[-1])  # 200-е число Фибоначчи
+print(fib_numbers[-1])
